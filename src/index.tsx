@@ -4,12 +4,26 @@ import './assets/styles/css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const el = document.getElementById('root');
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root'),
+  el,
 );
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default;
+    ReactDOM.render(
+      <React.StrictMode>
+        <NextApp />
+      </React.StrictMode>,
+      el,
+    );
+  });
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
