@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/styles/css/index.css';
+import {Provider} from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import configureStore from './store/configureStore';
 
+import './assets/styles/css/index.css';
+
+const store = configureStore();
 const el = document.getElementById('root');
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   el,
 );
@@ -18,7 +24,9 @@ if (module.hot) {
     const NextApp = require('./App').default;
     ReactDOM.render(
       <React.StrictMode>
-        <NextApp />
+        <Provider store={store}>
+          <NextApp />
+        </Provider>
       </React.StrictMode>,
       el,
     );
