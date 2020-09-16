@@ -1,4 +1,6 @@
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
+
+export interface HttpResponse<T = any> extends AxiosResponse<T> {}
 
 let jwtHeader = '';
 
