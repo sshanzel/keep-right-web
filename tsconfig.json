@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -11,19 +15,13 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "baseUrl": "src",
-    "paths": {
-      "@assets/*": ["./assets/*"],
-      "@components/*": ["./components/*"],
-      "@entities/*": ["./entities/*"],
-      "@routes/*": ["./routes/*"],
-      "@services/*": ["./services/*"],
-      "@store/*": ["./store/*"],
-      "@views/*": ["./views/*"]
-    }
+    "baseUrl": "src"
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ],
+  "extends": "./tsconfig.custom.json"
 }
