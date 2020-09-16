@@ -31,7 +31,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "build:css": "postcss src/assets/styles/css/tailwind.css -o src/assets/styles/css/main.css",
+    "build:css": "postcss src/assets/styles/css/tailwind.css -o src/assets/styles/css/main-tailwind.css",
     "prestart": "yarn run build:css",
     "start": "react-scripts start",
     "prebuild": "yarn run build:css",
