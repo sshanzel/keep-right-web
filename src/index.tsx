@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore';
 
 import './assets/styles/css/index.css';
+import './assets/styles/css/main.css';
 
 const store = configureStore();
 const el = document.getElementById('root');
