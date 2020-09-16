@@ -15,7 +15,7 @@ const App: React.FC<AppProps> = () => {
     if (app.isInitialized) return;
 
     dispatch(initializeApp());
-  }, [app.isInitialized]);
+  }, [dispatch, app.isInitialized]);
 
   if (!app.isInitialized) return <div>Loading...</div>;
 

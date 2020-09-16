@@ -32,7 +32,11 @@ export const authenticate = async ({email, password}: Credentials) => {
 
   await keepRight.auth().setPersistence('session');
 
-  await keepRight.auth().signInWithEmailAndPassword(email, password);
+  try {
+    await keepRight.auth().signInWithEmailAndPassword(email, password);
+  } catch (ex) {
+    return ex;
+  }
 };
 
 export const observeStateChanges = (callback: (user: firebase.User | null) => void) => {

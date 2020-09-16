@@ -1,16 +1,14 @@
 import React from 'react';
-import {useDispatch} from 'react-redux';
+
 import KRInput from 'src/components/KRInput';
 import KRButton from 'src/components/KRButton';
-
+import {authenticate} from 'src/services/auth.service';
 import KRButtonPlain from 'src/components/KRButtonPlain';
 import KRResponsiveBlock from 'src/components/KRResponsiveBlock';
-import {authenticate} from 'src/services/auth.service';
 
 import Logo from 'src/assets/images/the-solevilla.png';
 
 export const Login = () => {
-  const dispatch = useDispatch();
   const [error, setError] = React.useState('');
   const [processing, setProcessing] = React.useState(false);
   const [register, setRegister] = React.useState<string | null>(null);
@@ -21,21 +19,14 @@ export const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    authenticate({email, password});
-    // setProcessing(true);
 
-    // const command: () => any =
-    //   register !== null
-    //     ? () => dispatch(registerUser({email, password, name: register}))
-    //     : () => dispatch(login({email, password}));
+    setProcessing(true);
 
-    // const error = await command();
+    const error = await authenticate({email, password});
 
-    // if (!error) return;
+    setProcessing(false);
 
-    // setProcessing(false);
-
-    // error && setError(error);
+    error && setError('Invalid Email or Password!');
   };
 
   return (
