@@ -1,5 +1,6 @@
 import firebase from 'firebase';
 import config from 'src/config';
+import {postUser} from './user.service';
 
 export interface Credentials {
   email: string;
@@ -50,4 +51,18 @@ export const logout = () => {
   const keepRight = getApp(KEEP_RIGHT);
 
   keepRight.auth().signOut();
+};
+
+export const registerUser = async (email: string, password: string, name: string) => {
+  const keepRight = getApp(KEEP_RIGHT);
+
+  try {
+    const userCredential = await keepRight.auth().createUserWithEmailAndPassword(email, password);
+
+    userCredential.user?.sendEmailVerification();
+
+    postUser(name);
+  } catch (ex) {
+    return ex.message;
+  }
 };

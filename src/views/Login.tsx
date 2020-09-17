@@ -2,8 +2,8 @@ import React from 'react';
 
 import KRInput from 'src/components/KRInput';
 import KRButton from 'src/components/KRButton';
-import {authenticate} from 'src/services/auth.service';
 import KRButtonPlain from 'src/components/KRButtonPlain';
+import {authenticate, registerUser} from 'src/services/auth.service';
 import KRResponsiveBlock from 'src/components/KRResponsiveBlock';
 
 import Logo from 'src/assets/images/the-solevilla.png';
@@ -20,13 +20,20 @@ export const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
 
+    const command =
+      register !== null
+        ? () => registerUser(email, password, register)
+        : () => authenticate({email, password});
+
     setProcessing(true);
 
-    const error = await authenticate({email, password});
+    const error = await command();
 
     setProcessing(false);
 
-    error && setError('Invalid Email or Password!');
+    if (!error) return;
+
+    setError(register !== null ? error : 'Invalid Email or Password!');
   };
 
   return (
@@ -55,9 +62,10 @@ export const Login = () => {
           {register !== null && (
             <KRInput
               shadow
-              label="Name:"
+              name="fullname"
+              label="Fullname:"
               className="mt-4"
-              value={password}
+              value={register}
               onInputChange={value => setRegister(value)}
             />
           )}
