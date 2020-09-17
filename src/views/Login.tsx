@@ -38,6 +38,7 @@ export const Login = () => {
           {error && <div className="w-full mb-4 flex justify-center text-red-500">{error}</div>}
           <KRInput
             shadow
+            name="email"
             value={email}
             label="Email:"
             onInputChange={value => setCredentials(state => ({...state, email: value}))}
@@ -45,6 +46,7 @@ export const Login = () => {
           <KRInput
             shadow
             className="mt-4"
+            name="password"
             type="Password"
             value={password}
             label="Password:"

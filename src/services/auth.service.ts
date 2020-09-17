@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import config from 'src/config';
 
 export interface Credentials {
   email: string;
@@ -10,14 +11,14 @@ const KEEP_RIGHT = 'KEEP_RIGHT';
 export interface KeepRight extends firebase.app.App {}
 
 export const initializeFirebaseApp = (): KeepRight => {
-  const firebaseConfig = {
-    apiKey: 'AIzaSyBhOFlZzsDN0PDGQP-douCxE4WDvFIzNFo',
+  var firebaseConfig = {
+    apiKey: config.authApiKey,
     authDomain: 'jovial-trilogy-268111.firebaseapp.com',
     databaseURL: 'https://jovial-trilogy-268111.firebaseio.com',
     projectId: 'jovial-trilogy-268111',
     storageBucket: 'jovial-trilogy-268111.appspot.com',
     messagingSenderId: '1012674128649',
-    appId: '1:1012674128649:web:bb368b5fbc3a2e2c6701d8',
+    appId: '1:1012674128649:web:6ffcf0b8ddba81106701d8',
   };
 
   const keepRight = firebase.initializeApp(firebaseConfig, KEEP_RIGHT);
