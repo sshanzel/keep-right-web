@@ -1,4 +1,7 @@
 import React from 'react';
+import {logout} from 'src/services/auth.service';
+import LogoLabel from 'src/assets/images/keep-right-label.png';
+import LogoDevice from 'src/assets/images/keep-right-device.png';
 
 export interface AppbarProps {
   name?: string;
@@ -6,8 +9,14 @@ export interface AppbarProps {
 
 const Appbar: React.FC<AppbarProps> = ({name}) => {
   return (
-    <div className='h-16 flex flex-row items-center px-4 shadow-lg bg-gray-800'>
-      <span className='font-semibold text-xl text-white'>Hi {name}!</span>
+    <div className="w-screen h-16 border-b border-gray-100 shadow flex flex-row items-center justify-between px-4">
+      <div className="h-full flex flex-row items-center">
+        <img className="h-full py-1" src={LogoDevice} alt="KeepRightDevice" />
+        <img className="-ml-2" src={LogoLabel} alt="KeepRightLabel" />
+      </div>
+      <button className="text-gray-600" onClick={logout}>
+        Logout
+      </button>
     </div>
   );
 };

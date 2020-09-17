@@ -1,7 +1,8 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import KeepRight from './views';
 import Login from 'src/views/Login';
-import {logout} from './services/auth.service';
+import Appbar from './views/layout/Appbar';
 import {RootState} from 'src/store/rootReducer';
 import {initializeApp} from './store/app.actions';
 
@@ -22,8 +23,9 @@ const App: React.FC<AppProps> = () => {
   if (!auth.user) return <Login />;
 
   return (
-    <div className="root">
-      <button onClick={logout}>Logout</button>
+    <div className="w-screen h-screen flex flex-col">
+      <Appbar />
+      <KeepRight />
     </div>
   );
 };
