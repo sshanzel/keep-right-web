@@ -1,10 +1,11 @@
 import axios, {AxiosResponse} from 'axios';
+import config from 'src/config';
 
 export interface HttpResponse<T = any> extends AxiosResponse<T> {}
 
 let jwtHeader = '';
 
-axios.defaults.baseURL = `https://localhost/api`;
+axios.defaults.baseURL = config.apiUrl;
 
 axios.interceptors.response.use(
   success => Promise.resolve(success),

@@ -1,5 +1,5 @@
 import {ReduxThunk} from './rootReducer';
-import {getUserByUid} from 'src/services/user.service';
+import {getUser} from 'src/services/user.service';
 import {setHeaderAuthToken} from 'src/services/http.service';
 import {setUser, setIsObservingState} from './auth.reducers';
 import {observeStateChanges} from './../services/auth.service';
@@ -19,7 +19,7 @@ export const observeAuthStateChanges = (): ReduxThunk => (dispatch, getState) =>
 
       setHeaderAuthToken(await user.getIdToken());
 
-      const response = await getUserByUid(user.uid);
+      const response = await getUser();
 
       response.data.firebaseUser = user;
 

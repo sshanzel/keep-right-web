@@ -1,8 +1,14 @@
-import {AxiosResponse} from 'axios';
 import User from 'src/entities/User';
+import httpService from './http.service';
 
-export const getUserByUid = (uid: string) => {
-  const response = {data: {id: ''} as User} as AxiosResponse;
+export const getUserById = (id: string) => {
+  return httpService.get<User>('/users' + id);
+};
 
-  return Promise.resolve(response);
+export const getUser = () => {
+  return httpService.get<User>('/users/me');
+};
+
+export const postUser = (name: string) => {
+  return httpService.post<User>('/users', {name});
 };
