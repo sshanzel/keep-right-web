@@ -23,7 +23,7 @@ const App: React.FC<AppProps> = () => {
   if (!auth.user) return <Login />;
 
   return (
-    <div className="w-screen h-screen flex flex-col">
+    <div className="w-screen h-screen flex flex-col bg-gray-400">
       <Appbar />
       <KeepRight />
     </div>
