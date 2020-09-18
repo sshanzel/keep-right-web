@@ -12,17 +12,7 @@ const KEEP_RIGHT = 'KEEP_RIGHT';
 export interface KeepRight extends firebase.app.App {}
 
 export const initializeFirebaseApp = (): KeepRight => {
-  var firebaseConfig = {
-    apiKey: config.authApiKey,
-    authDomain: 'jovial-trilogy-268111.firebaseapp.com',
-    databaseURL: 'https://jovial-trilogy-268111.firebaseio.com',
-    projectId: 'jovial-trilogy-268111',
-    storageBucket: 'jovial-trilogy-268111.appspot.com',
-    messagingSenderId: '1012674128649',
-    appId: '1:1012674128649:web:6ffcf0b8ddba81106701d8',
-  };
-
-  const keepRight = firebase.initializeApp(firebaseConfig, KEEP_RIGHT);
+  const keepRight = firebase.initializeApp(config.firebase, KEEP_RIGHT);
 
   return keepRight;
 };
