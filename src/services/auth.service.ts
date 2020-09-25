@@ -52,8 +52,6 @@ export const registerUser = async (email: string, password: string, name: string
     if (config.sendEmailVerification) userCredential.user?.sendEmailVerification();
 
     await postUser(name);
-
-    window.location.reload();
   } catch (ex) {
     return ex.message;
   }
