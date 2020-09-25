@@ -49,9 +49,15 @@ export const registerUser = async (email: string, password: string, name: string
   try {
     const userCredential = await keepRight.auth().createUserWithEmailAndPassword(email, password);
 
-    if (config.sendEmailVerification) userCredential.user?.sendEmailVerification();
+    if (!userCredential.user) return;
 
-    await postUser(name);
+    userCredential.user.updateProfile({displayName: name.split(' ')[0]});
+
+    if (config.sendEmailVerification) userCredential.user.sendEmailVerification();
+
+    postUser(name);
+
+    window.location.reload();
   } catch (ex) {
     return ex.message;
   }

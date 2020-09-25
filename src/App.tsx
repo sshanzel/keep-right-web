@@ -25,7 +25,7 @@ const App: React.FC<AppProps> = () => {
   return (
     <div className="w-screen h-screen flex flex-col bg-gray-400">
       <Appbar />
-      <KeepRight />
+      <KeepRight name={auth.user.firebaseUser.displayName || ''} />
     </div>
   );
 };
