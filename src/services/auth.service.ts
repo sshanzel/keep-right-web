@@ -51,7 +51,7 @@ export const registerUser = async (email: string, password: string, name: string
 
     if (!userCredential.user) return;
 
-    userCredential.user.updateProfile({displayName: name.split(' ')[0]});
+    await userCredential.user.updateProfile({displayName: name.split(' ')[0]});
 
     if (config.sendEmailVerification) userCredential.user.sendEmailVerification();
 
