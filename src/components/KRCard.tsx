@@ -6,7 +6,16 @@ export interface KRCardProps {
 }
 
 const KRCard: React.FC<KRCardProps> = ({something}) => {
-  return <div className="h-32 w-full shadow bg-white rounded-lg"></div>;
+  const {title, somethingTags} = something;
+
+  return (
+    <div className="h-32 w-full flex flex-col items-center justify-between pt-2 shadow hover:shadow-lg bg-white rounded-lg">
+      <span className="text-2xl text-gray-800">{title}</span>
+      <div className="flex flex-row truncate text-xs text-gray-600 mb-2">
+        {somethingTags?.map(somethingTag => '#' + somethingTag.tag.title)}
+      </div>
+    </div>
+  );
 };
 
 export default KRCard;

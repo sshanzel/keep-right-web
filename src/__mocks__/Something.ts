@@ -1,11 +1,22 @@
 import Something from 'src/entities/Something';
 
 export const getSomethingsByUserId = (userId: number): Promise<Something[]> => {
-  return Promise.resolve([
+  const somethings: Something[] = [
     {
       id: -1,
       title: 'Test',
       typeId: 1,
+      somethingTags: [
+        {
+          id: -1,
+          somethingId: -1,
+          tagId: -1,
+          tag: {
+            id: -1,
+            title: 'test',
+          },
+        },
+      ],
     },
     {
       id: -2,
@@ -62,5 +73,7 @@ export const getSomethingsByUserId = (userId: number): Promise<Something[]> => {
       title: 'Try',
       typeId: 1,
     },
-  ]);
+  ];
+
+  return Promise.resolve(somethings);
 };

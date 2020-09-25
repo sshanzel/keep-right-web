@@ -6,5 +6,5 @@ export default interface Something extends BaseEntity {
   typeId: number;
 
   type?: Type;
-  tags?: SomethingTag[];
+  somethingTags?: SomethingTag[];
 }
