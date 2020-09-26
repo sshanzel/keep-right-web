@@ -1,0 +1,17 @@
+.card__container {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &:hover::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    transition: all;
+    position: absolute;
+    transition-duration: 100;
+    transform: translateY(0.25rem);
+  }
+}
