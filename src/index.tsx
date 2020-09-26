@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import configureStore from './store/configureStore';
 
 import './assets/styles/css/index.css';
+import './assets/styles/scss/index.scss';
 import './assets/styles/css/main-tailwind.css';
 
 const store = configureStore();
