@@ -2,7 +2,7 @@ import React from 'react';
 import Feed from './Feed';
 import KRInput from 'src/components/KRInput';
 import Something from 'src/entities/Something';
-import {getSomethingsByUserId} from 'src/__mocks__/Something';
+import {getSomethings} from 'src/services/something.service';
 
 export interface KeepRightProps {
   name: string;
@@ -12,7 +12,7 @@ const KeepRight: React.FC<KeepRightProps> = ({name}) => {
   const [somethings, setSomethings] = React.useState<Something[]>([]);
 
   React.useEffect(() => {
-    getSomethingsByUserId(1).then(somethings => setSomethings(somethings));
+    getSomethings().then(response => setSomethings(response.data));
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 import Something from 'src/entities/Something';
 
-export const getSomethingsByUserId = (userId: number): Promise<Something[]> => {
+export const getSomethingsByUserId = (): Promise<Something[]> => {
   const somethings: Something[] = [
     {
       id: -1,
