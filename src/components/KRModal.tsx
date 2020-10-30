@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface KRModalProps {
-  open: boolean;
+  isOpen: boolean;
   error?: string;
   defaultLayout?: boolean;
   children?: React.ReactNode | React.ReactNode[];
@@ -10,7 +10,7 @@ export interface KRModalProps {
 
 const WRAPPER_CLASS = 'drawer__wrapper';
 
-const KRModal: React.FC<KRModalProps> = ({onClose, open, children, defaultLayout = true}) => {
+const KRModal: React.FC<KRModalProps> = ({onClose, isOpen, children, defaultLayout = true}) => {
   const handleClick = (e: React.MouseEvent) => {
     const el = e.target as HTMLElement;
 
@@ -22,7 +22,7 @@ const KRModal: React.FC<KRModalProps> = ({onClose, open, children, defaultLayout
       onClick={handleClick}
       style={{backgroundColor: '#00000080'}}
       className={`${WRAPPER_CLASS} ${
-        open ? 'flex' : 'hidden'
+        isOpen ? 'flex' : 'hidden'
       } fixed top-0 left-0 w-screen h-screen z-10 items-center justify-center`}>
       {!defaultLayout ? (
         children
