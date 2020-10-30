@@ -52,7 +52,7 @@ const KRInput: React.FC<KRInputProps> = ({
   }, [value]);
 
   return (
-    <KRInputContainer className={className}>
+    <KRInputContainer className={`my-2 ${className}`}>
       <KRInputLabel>{label}</KRInputLabel>
       <input
         {...props}

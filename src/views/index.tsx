@@ -19,7 +19,7 @@ const KeepRight: React.FC<KeepRightProps> = ({name}) => {
   return (
     <div className="flex flex-1 flex-col overflow-auto">
       <div className="w-full bg-white mb-4 p-4 font-semibold">Hi {name}!</div>
-      <div className="w-full flex flex-row pl-4">
+      <div className="w-full flex flex-row pl-4 items-center">
         <AddSomething />
         <KRInput shadow className="rounded-full px-4" />
       </div>
